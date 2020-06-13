@@ -20,7 +20,7 @@
     <arg name="use_sim_time" value="true"/>
     <arg name="debug" value="false"/>
     <arg name="gui" value="true" />
-    <arg name="paused" value="true"/>
+    <!--arg name="paused" value="true"/-->
     <arg name="world_name" value="$(arg world_file)"/>
   </include>
 
@@ -29,12 +29,6 @@
         args="-urdf -param robot_description -model my_robot 
               -x $(arg x) -y $(arg y) -z $(arg z)
               -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
-
-  <!-- The drive_bot node -->
-  <node name="drive_bot" type="drive_bot" pkg="ball_chaser" output="screen"></node>
-
-  <!-- The process_image node -->
-  <node name="process_image" type="process_image" pkg="ball_chaser" output="screen"></node>
 
   <!--launch rviz-->
   <node pkg="rviz" type="rviz" name="rviz" args="-d $(find my_robot)/rviz/my_robot.rviz"/>
